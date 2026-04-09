@@ -1,0 +1,202 @@
+\documentclass[12pt,a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
+% ── Page Style ────────────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{4006 Task — Flight Dynamics Simulation}
+\lhead{\leftmark}
+\cfoot{\thepage}
+
+% ── Code Listing Style ────────────────────────────────────────────────────────
+\lstdefinestyle{matlab}{
+    language=Matlab,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    breaklines=true,
+    frame=single,
+    captionpos=b,
+}
+
+% ── Title ─────────────────────────────────────────────────────────────────────
+\title{
+    \vspace{2cm}
+    \textbf{Flight Dynamics Simulation Model} \\[0.5em]
+    \large 4006 Task Report \\[0.5em]
+    \normalsize Department of Aerospace Engineering
+}
+\author{Your Name \\ Student ID: XXXXXXX \and Second Author \\ Student ID: XXXXXXX}
+\date{\today}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\newpage
+
+% ── 1. Introduction ───────────────────────────────────────────────────────────
+\section{Introduction}
+\label{sec:intro}
+
+Provide background on the project. State the objectives and outline the
+structure of the report.
+
+% ── 2. Forces and Torques Model ───────────────────────────────────────────────
+\section{Forces and Torques Model}
+\label{sec:forces}
+
+\subsection{Aerodynamic Forces}
+
+Describe lift, drag, and side force equations.
+
+\begin{equation}
+    \mathbf{F}_{aero} = \begin{bmatrix} F_x \\ F_y \\ F_z \end{bmatrix}
+    \label{eq:aero_forces}
+\end{equation}
+
+\subsection{Aerodynamic Moments}
+
+Describe rolling, pitching, and yawing moments.
+
+\begin{equation}
+    \mathbf{M}_{aero} = \begin{bmatrix} l \\ m \\ n \end{bmatrix}
+    \label{eq:aero_moments}
+\end{equation}
+
+\subsection{Gravitational Forces}
+
+Describe gravitational force components in the body frame.
+
+% ── 3. Control Surface Model ──────────────────────────────────────────────────
+\section{Control Surface Model}
+\label{sec:control}
+
+\subsection{Control Inputs}
+
+Describe aileron ($\delta_a$), elevator ($\delta_e$), and rudder ($\delta_r$)
+deflections.
+
+\subsection{Aerodynamic Derivatives}
+
+Explain control surface aerodynamic derivatives and their effect on forces and
+moments.
+
+% ── 4. Trim Analysis ──────────────────────────────────────────────────────────
+\section{Trim Analysis}
+\label{sec:trim}
+
+\subsection{Trim Conditions}
+
+Define the equilibrium (trim) conditions for steady-level flight.
+
+\subsection{Trim Solution}
+
+Describe the numerical method used to solve for trim states and control
+deflections.
+
+\subsection{Trim Validation}
+
+Present validation results.
+
+\begin{table}[h!]
+    \centering
+    \caption{Trim State Results}
+    \label{tab:trim}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Variable} & \textbf{Symbol} & \textbf{Value} \\
+        \midrule
+        Airspeed          & $V_a$           & -- m/s         \\
+        Angle of attack   & $\alpha$        & -- deg         \\
+        Pitch angle       & $\theta$        & -- deg         \\
+        Elevator          & $\delta_e$      & -- deg         \\
+        Throttle          & $\delta_t$      & --             \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% ── 5. Autopilot Design ───────────────────────────────────────────────────────
+\section{Autopilot Design}
+\label{sec:autopilot}
+
+\subsection{Autopilot Architecture}
+
+Describe the overall autopilot structure (inner/outer loops, etc.).
+
+\subsection{Gain Computation}
+
+Explain how autopilot gains were computed (refer to
+\texttt{compute\_autopilot\_gains.m}).
+
+\subsection{Simulation Results}
+
+Present and discuss simulation results. Include figures as needed.
+
+\begin{figure}[h!]
+    \centering
+    % \includegraphics[width=0.8\textwidth]{figures/your_figure.png}
+    \caption{Autopilot simulation response.}
+    \label{fig:autopilot_response}
+\end{figure}
+
+% ── 6. Discussion ─────────────────────────────────────────────────────────────
+\section{Discussion}
+\label{sec:discussion}
+
+Interpret your results. Compare against expectations or reference values.
+Discuss any discrepancies or limitations.
+
+% ── 7. Conclusion ─────────────────────────────────────────────────────────────
+\section{Conclusion}
+\label{sec:conclusion}
+
+Summarise findings and their significance. Suggest future work if appropriate.
+
+% ── References ────────────────────────────────────────────────────────────────
+\newpage
+\printbibliography
+
+% ── Appendix ──────────────────────────────────────────────────────────────────
+\newpage
+\appendix
+
+\section{MATLAB Code}
+\label{app:code}
+
+\subsection{forces\_moments.m}
+\begin{lstlisting}[style=matlab, caption={Forces and moments computation}]
+% Paste or \input your MATLAB code here
+\end{lstlisting}
+
+\subsection{compute\_trim.m}
+\begin{lstlisting}[style=matlab, caption={Trim computation}]
+% Paste or \input your MATLAB code here
+\end{lstlisting}
+
+\end{document}
