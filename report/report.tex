@@ -21,30 +21,20 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{AAE4006 Flight Mechanics and Control Systems}
-\lhead{\leftmark}
+\lhead{}
 \cfoot{\thepage}
 
 % ══════════════════════════════════════════════════════════════════════════════
 \begin{document}
 % ══════════════════════════════════════════════════════════════════════════════
 
-% ── Title Page ────────────────────────────────────────────────────────────────
-\begin{titlepage}
-    \centering
-    \vspace*{3cm}
-    {\Large\bfseries AAE4006 FLIGHT MECHANICS AND CONTROL SYSTEMS\\[0.5em]}
-    {\large Project Report\\[2em]}
-    {\large Group 7\\[1em]}
-    \begin{tabular}{ll}
-        Tam Man Hong  & 23084486D \\
-        Tse Chun Sing & 23022054D \\
-    \end{tabular}
-    \vfill
-    {\large \today}
-\end{titlepage}
-
-\tableofcontents
-\newpage
+% ── Title (compact, single page) ─────────────────────────────────────────────
+\begin{center}
+    {\Large\bfseries AAE4006 FLIGHT MECHANICS AND CONTROL SYSTEMS}\\[0.3em]
+    {\large Project Report \quad Group 7}\\[0.3em]
+    {\normalsize Tam Man Hong\ 23084486D \quad Tse Chun Sing\ 23022054D \quad \today}
+\end{center}
+\vspace{0.5em}
 
 % ── 1. Introduction ───────────────────────────────────────────────────────────
 \section{Introduction}
@@ -53,7 +43,7 @@ This project involves developing a Simulink model that presents the flight of a 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\textwidth]{image26.png}
+    \includegraphics[width=0.45\textwidth]{image26.png}
     \caption{Overview of the simulation system.}
     \label{fig:overview}
 \end{figure}
@@ -69,17 +59,18 @@ In Lab 1, our task is to use MATLAB to build a fixed-wing aircraft with the foll
 
 \begin{table}[h!]
     \centering
+    \small
     \caption{Aircraft geometry parameters.}
     \label{tab:geometry}
-    \begin{tabular}{lclc}
+    \begin{tabular}{p{5cm}cp{5cm}c}
         \toprule
         \textbf{Parameter} & \textbf{Value} & \textbf{Parameter} & \textbf{Value} \\
         \midrule
-        Centre of Mass to Tip of Fuselage            & 1.5 & Centre of Mass to Widest Part of Fuselage & 1 \\
-        Centre of Mass to Back of Fuselage           & 5   & Height of Fuselage                        & 1 \\
-        Width of Fuselage                            & 1   & Length of Wing Along Fuselage             & 2 \\
-        Wingspan                                     & 6   & Length of Tail                            & 1 \\
-        Length of the Tail Wing                      & 1   & Width of the Tail Wing                    & 3 \\
+        Centre of Mass to Tip of Fuselage   & 1.5 & Centre of Mass to Widest Part of Fuselage & 1 \\
+        Centre of Mass to Back of Fuselage  & 5   & Height of Fuselage                        & 1 \\
+        Width of Fuselage                   & 1   & Length of Wing Along Fuselage             & 2 \\
+        Wingspan                            & 6   & Length of Tail                            & 1 \\
+        Length of the Tail Wing             & 1   & Width of the Tail Wing                    & 3 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -90,15 +81,15 @@ Furthermore, the patch function requires that every row of the input \textit{Fac
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.22\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image13.png}
+        \includegraphics[width=0.5\textwidth]{image13.png}
         \caption{Vertex structure.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.22\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image12.png}
+        \includegraphics[width=0.5\textwidth]{image12.png}
         \caption{Rendered aircraft model.}
     \end{subfigure}
     \caption{Task 1 results.}
@@ -116,15 +107,15 @@ To perform \textbf{rotation}, we use a NED-to-body-frame transformation with the
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.22\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image15.png}
+        \includegraphics[width=0.5\textwidth]{image15.png}
         \caption{Rotation matrix.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.22\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image28.png}
+        \includegraphics[width=0.5\textwidth]{image28.png}
         \caption{Combined 3-2-1 matrix.}
     \end{subfigure}
     \caption{Rotation matrix formulation.}
@@ -135,15 +126,15 @@ After the MATLAB code is complete, running the Simulink model with input positio
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.20\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image23.png}
+        \includegraphics[width=0.5\textwidth]{image23.png}
         \caption{Translated aircraft.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.55\textwidth}
+    \begin{subfigure}{0.27\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image9.png}
+        \includegraphics[width=0.5\textwidth]{image9.png}
         \caption{Rotated aircraft.}
     \end{subfigure}
     \caption{Task 2 simulation results.}
@@ -157,25 +148,25 @@ The flight dynamics of a rigid-body aircraft are governed by twelve coupled firs
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image27.png}
+        \includegraphics[width=0.5\textwidth]{image27.png}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image18.png}
-    \end{subfigure}\\[1em]
-    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=0.5\textwidth]{image18.png}
+    \end{subfigure}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image14.png}
+        \includegraphics[width=0.5\textwidth]{image14.png}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image6.png}
+        \includegraphics[width=0.5\textwidth]{image6.png}
     \end{subfigure}
-    \caption{Equations of motion (EoM) — Eqs. 1–4.}
+    \caption{Equations of motion (EoM) --- Eqs.\ 1--4.}
     \label{fig:eom}
 \end{figure}
 
@@ -183,7 +174,7 @@ For the model, we can input the forces $[F_x, F_y, F_z]$ and moments $[l, m, n]$
 
 \begin{table}[h!]
     \centering
-    \caption{Forces and Torques block — inputs and outputs.}
+    \caption{Forces and Torques block --- inputs and outputs.}
     \label{tab:fm_io}
     \begin{minipage}{0.45\textwidth}
         \centering
@@ -214,7 +205,7 @@ For the model, we can input the forces $[F_x, F_y, F_z]$ and moments $[l, m, n]$
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.55\textwidth]{image7.png}
+    \includegraphics[width=0.275\textwidth]{image7.png}
     \caption{Forces and Torques Simulink block.}
     \label{fig:fm_block}
 \end{figure}
@@ -228,7 +219,7 @@ A more complete simulation framework introduces control surface deflections as t
 
 \begin{table}[h!]
     \centering
-    \caption{Control Surface block — inputs and outputs.}
+    \caption{Control Surface block --- inputs and outputs.}
     \label{tab:cs_io}
     \begin{minipage}{0.48\textwidth}
         \centering
@@ -236,9 +227,9 @@ A more complete simulation framework introduces control surface deflections as t
             \toprule
             \textbf{Input} & \textbf{Description} \\
             \midrule
-            $\mathbf{x}$        & Full aircraft state (12$\times$1) \\
+            $\mathbf{x}$          & Full aircraft state (12$\times$1) \\
             $\boldsymbol{\delta}$ & $[\delta_e, \delta_a, \delta_r, \delta_t]$ \\
-            wind                & Steady + gust components \\
+            wind                  & Steady + gust components \\
             \bottomrule
         \end{tabular}
     \end{minipage}
@@ -262,7 +253,7 @@ A more complete simulation framework introduces control surface deflections as t
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.55\textwidth]{image34.png}
+    \includegraphics[width=0.275\textwidth]{image34.png}
     \caption{Control Surface Simulink block.}
     \label{fig:cs_block}
 \end{figure}
@@ -276,7 +267,7 @@ Trim does not calculate deflections with a direct formula. Instead, it solves a 
 
 \begin{table}[h!]
     \centering
-    \caption{Trim block — inputs and outputs.}
+    \caption{Trim block --- inputs and outputs.}
     \label{tab:trim_io}
     \begin{minipage}{0.45\textwidth}
         \centering
@@ -306,14 +297,14 @@ Trim does not calculate deflections with a direct formula. Instead, it solves a 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.55\textwidth]{image36.png}
+    \includegraphics[width=0.275\textwidth]{image36.png}
     \caption{Trim Simulink block.}
     \label{fig:trim_block}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{image25.png}
+    \includegraphics[width=0.5\textwidth]{image25.png}
     \caption{Trim optimiser equilibrium conditions (\texttt{dx0}).}
     \label{fig:trim_dx0}
 \end{figure}
@@ -330,37 +321,36 @@ In Lab 6, we design a successive loop closure autopilot based on all previous wo
 The lateral autopilot steers the aircraft left and right through two nested loops:
 
 \begin{itemize}
-    \item \textbf{Course control (Controller 2)} — outer loop PI controller. Computes the error between desired and actual heading and calculates the commanded roll angle $\phi^c$.
-    \item \textbf{Roll control (Controller 1)} — inner loop PD controller. Compares commanded and actual roll angle, then calculates aileron deflection $\delta_a$.
+    \item \textbf{Course control (Controller 2)} --- outer loop PI controller. Computes the error between desired and actual heading and calculates the commanded roll angle $\phi^c$.
+    \item \textbf{Roll control (Controller 1)} --- inner loop PD controller. Compares commanded and actual roll angle, then calculates aileron deflection $\delta_a$.
 \end{itemize}
-
-Because ailerons produce an immediate roll but the aircraft needs time to change course, course control is the outer loop and roll control is the inner loop.
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image8.png}
-        \caption{Course control (Controller 2).}
+        \includegraphics[width=0.5\textwidth]{image8.png}
+        \caption{Course control.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image5.png}
-        \caption{Roll control (Controller 1).}
-    \end{subfigure}\\[1em]
-    \begin{subfigure}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{image30.png}
-        \caption{Gains for course control.}
+        \includegraphics[width=0.5\textwidth]{image5.png}
+        \caption{Roll control.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image24.png}
-        \caption{Gains for roll control.}
+        \includegraphics[width=0.5\textwidth]{image30.png}
+        \caption{Course gains.}
     \end{subfigure}
-    \caption{Lateral autopilot — course and roll control.}
+    \hfill
+    \begin{subfigure}{0.24\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]{image24.png}
+        \caption{Roll gains.}
+    \end{subfigure}
+    \caption{Lateral autopilot --- course and roll control (Controllers 1 \& 2).}
     \label{fig:lateral_course_roll}
 \end{figure}
 
@@ -368,24 +358,24 @@ The lateral autopilot also has a standalone \textbf{sideslip control (Controller
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.30\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image19.png}
-        \caption{Sideslip control block.}
+        \includegraphics[width=0.5\textwidth]{image19.png}
+        \caption{Sideslip control.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.30\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image17.png}
+        \includegraphics[width=0.5\textwidth]{image17.png}
         \caption{Sideslip gains.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.35\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image35.png}
+        \includegraphics[width=0.5\textwidth]{image35.png}
         \caption{Sideslip response.}
     \end{subfigure}
-    \caption{Lateral autopilot — sideslip control (Controller 3).}
+    \caption{Lateral autopilot --- sideslip control (Controller 3).}
     \label{fig:lateral_sideslip}
 \end{figure}
 
@@ -394,30 +384,30 @@ The lateral autopilot also has a standalone \textbf{sideslip control (Controller
 The longitudinal autopilot controls altitude and airspeed:
 
 \begin{itemize}
-    \item \textbf{Altitude hold control (Controller 5)} — outer loop PI controller. Measures altitude error and generates commanded pitch angle $\theta^c$.
-    \item \textbf{Pitch control (Controller 4)} — inner loop PD controller. Based on $\theta^c$, generates elevator deflection $\delta_e$.
+    \item \textbf{Altitude hold control (Controller 5)} --- outer loop PI controller. Measures altitude error and generates commanded pitch angle $\theta^c$.
+    \item \textbf{Pitch control (Controller 4)} --- inner loop PD controller. Based on $\theta^c$, generates elevator deflection $\delta_e$.
 \end{itemize}
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.32\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image33.png}
-        \caption{Altitude hold control.}
+        \includegraphics[width=0.5\textwidth]{image33.png}
+        \caption{Altitude hold.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.32\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image16.png}
+        \includegraphics[width=0.5\textwidth]{image16.png}
         \caption{Pitch control.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.32\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image11.png}
+        \includegraphics[width=0.5\textwidth]{image11.png}
         \caption{Gains.}
     \end{subfigure}
-    \caption{Longitudinal autopilot — altitude hold and pitch control (Controllers 4 \& 5).}
+    \caption{Longitudinal autopilot --- altitude hold and pitch control (Controllers 4 \& 5).}
     \label{fig:longitudinal_alt}
 \end{figure}
 
@@ -425,18 +415,18 @@ The longitudinal autopilot controls altitude and airspeed:
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image10.png}
-        \caption{Airspeed hold control.}
+        \includegraphics[width=0.5\textwidth]{image10.png}
+        \caption{Airspeed hold.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image21.png}
+        \includegraphics[width=0.5\textwidth]{image21.png}
         \caption{Airspeed gains.}
     \end{subfigure}
-    \caption{Longitudinal autopilot — airspeed hold control (Controller 6).}
+    \caption{Longitudinal autopilot --- airspeed hold control (Controller 6).}
     \label{fig:longitudinal_airspeed}
 \end{figure}
 
@@ -444,18 +434,18 @@ A standalone \textbf{throttle control} loop maintains the commanded airspeed dur
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image32.png}
-        \caption{Throttle control block.}
+        \includegraphics[width=0.5\textwidth]{image32.png}
+        \caption{Throttle control.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image22.png}
+        \includegraphics[width=0.5\textwidth]{image22.png}
         \caption{Throttle gains.}
     \end{subfigure}
-    \caption{Longitudinal autopilot — throttle control.}
+    \caption{Longitudinal autopilot --- throttle control.}
     \label{fig:throttle}
 \end{figure}
 
@@ -469,17 +459,17 @@ Based on current altitude, the longitudinal autopilot divides flight into four z
         \toprule
         \textbf{Zone} & \textbf{Throttle} & \textbf{Commanded Pitch} \\
         \midrule
-        Take-off Zone    & Large (0.4)             & Fixed at 20$^\circ$ \\
-        Climb Zone       & Large (0.4)             & Adjusted by Airspeed Hold Control \\
-        Descend Zone     & Zero                    & Adjusted by Airspeed Hold Control \\
-        Altitude Hold Zone & Adjusted by Throttle Control & Adjusted by Pitch Control \\
+        Take-off Zone      & Large (0.4)                   & Fixed at 20$^\circ$ \\
+        Climb Zone         & Large (0.4)                   & Adjusted by Airspeed Hold \\
+        Descend Zone       & Zero                          & Adjusted by Airspeed Hold \\
+        Altitude Hold Zone & Adjusted by Throttle Control  & Adjusted by Pitch Control \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{image4.png}
+    \includegraphics[width=0.5\textwidth]{image4.png}
     \caption{Result of autopilot design simulation.}
     \label{fig:autopilot_result}
 \end{figure}
@@ -509,15 +499,15 @@ In this section, we address the issue of excessive airspeed in the autopilot. Up
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image20.png}
+        \includegraphics[width=0.5\textwidth]{image20.png}
         \caption{Original (incorrect) gains.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{image31.png}
+        \includegraphics[width=0.5\textwidth]{image31.png}
         \caption{Corrected gains.}
     \end{subfigure}
     \caption{Airspeed controller gain correction.}
@@ -528,7 +518,7 @@ The original gains were based on Controller 6 values, which are always negative.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{image29.png}
+    \includegraphics[width=0.40\textwidth]{image29.png}
     \caption{Simulation results after airspeed gain correction.}
     \label{fig:corrected_result}
 \end{figure}
@@ -542,18 +532,16 @@ The original gains were based on Controller 6 values, which are always negative.
 
 The project demonstrates a highly effective and adaptable system architecture known as \textit{successive loop closure}. This design manages complex operations by breaking them into simple feedback loops based on a separation of time scales.
 
-The architecture divides tasks into two main categories:
-
 \begin{itemize}
     \item \textbf{Inner Loop (Reflexes):} Processes with a faster response time. In flight simulation, the inner loop handles immediate attitude stabilisation by calculating precise control surface deflections.
     \item \textbf{Outer Loop (Strategy):} Responsible for overarching goals that require longer time to execute. In the autopilot, the outer loop governs navigation and course control, issuing high-level commands that the inner loop physically executes.
 \end{itemize}
 
-This architecture also maps naturally onto AI agent design. \textit{ReAct} (Reasoning + Acting) resembles the inner loop — mixing reasoning and acting in a cycle of thought, action, and observation for fast corrective execution. \textit{OpenClaw's ``Heartbeat''} runs periodic agent turns with full session context, resembling a slower outer monitoring loop. \textit{``Dreaming''} is a background memory consolidation system that promotes short-term signals into durable memory, analogous to long-term adaptation.
+This architecture also maps naturally onto AI agent design. \textit{ReAct} resembles the inner loop --- mixing reasoning and acting in a cycle of thought, action, and observation for fast corrective execution. \textit{OpenClaw's ``Heartbeat''} runs periodic agent turns with full session context, resembling a slower outer monitoring loop. \textit{``Dreaming''} is a background memory consolidation system analogous to long-term adaptation.
 
 \item \textbf{Conclusion}
 
-This project successfully developed a comprehensive MATLAB and Simulink model to simulate and control a fixed-wing aircraft. The implementation and comparative analysis of three distinct flight models — the Forces and Moments model for transient behaviour, the Control Surface model for physical interactions and nonlinear coupling, and the Trim model for steady-state equilibrium — provide a complete simulation pipeline from first principles to autopilot flight.
+This project successfully developed a comprehensive MATLAB and Simulink model to simulate and control a fixed-wing aircraft. The implementation and comparative analysis of three distinct flight models --- the Forces and Moments model for transient behaviour, the Control Surface model for physical interactions and nonlinear coupling, and the Trim model for steady-state equilibrium --- provide a complete simulation pipeline from first principles to autopilot flight.
 
 \end{enumerate}
 
