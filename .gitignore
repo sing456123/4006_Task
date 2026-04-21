@@ -1,0 +1,20 @@
+# HTML source report and original images (folder name has spaces — use backslash)
+AAE4006\ Project\ Report/
+
+# Nested duplicate inside figures
+report/figures/images/
+
+# Untracked scratch folder
+push/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# macOS
+.DS_Store
