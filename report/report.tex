@@ -43,7 +43,7 @@ This project involves developing a Simulink model that presents the flight of a 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.45\textwidth]{image26.png}
+    \includegraphics[width=0.5\textwidth]{image26.png}
     \caption{Overview of the simulation system.}
     \label{fig:overview}
 \end{figure}
@@ -81,15 +81,15 @@ Furthermore, the patch function requires that every row of the input \textit{Fac
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.22\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image13.png}
+        \includegraphics[width=\textwidth]{image13.png}
         \caption{Vertex structure.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.22\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image12.png}
+        \includegraphics[width=\textwidth]{image12.png}
         \caption{Rendered aircraft model.}
     \end{subfigure}
     \caption{Task 1 results.}
@@ -107,15 +107,15 @@ To perform \textbf{rotation}, we use a NED-to-body-frame transformation with the
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.22\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image15.png}
+        \includegraphics[width=\textwidth]{image15.png}
         \caption{Rotation matrix.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.22\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image28.png}
+        \includegraphics[width=\textwidth]{image28.png}
         \caption{Combined 3-2-1 matrix.}
     \end{subfigure}
     \caption{Rotation matrix formulation.}
@@ -126,15 +126,15 @@ After the MATLAB code is complete, running the Simulink model with input positio
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.20\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image23.png}
+        \includegraphics[width=\textwidth]{image23.png}
         \caption{Translated aircraft.}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.27\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image9.png}
+        \includegraphics[width=\textwidth]{image9.png}
         \caption{Rotated aircraft.}
     \end{subfigure}
     \caption{Task 2 simulation results.}
@@ -150,21 +150,21 @@ The flight dynamics of a rigid-body aircraft are governed by twelve coupled firs
     \centering
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image27.png}
+        \includegraphics[width=\textwidth]{image27.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image18.png}
+        \includegraphics[width=\textwidth]{image18.png}
     \end{subfigure}
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image14.png}
+        \includegraphics[width=\textwidth]{image14.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image6.png}
+        \includegraphics[width=\textwidth]{image6.png}
     \end{subfigure}
     \caption{Equations of motion (EoM) --- Eqs.\ 1--4.}
     \label{fig:eom}
@@ -205,7 +205,7 @@ For the model, we can input the forces $[F_x, F_y, F_z]$ and moments $[l, m, n]$
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.275\textwidth]{image7.png}
+    \includegraphics[width=0.5\textwidth]{image7.png}
     \caption{Forces and Torques Simulink block.}
     \label{fig:fm_block}
 \end{figure}
@@ -253,7 +253,7 @@ A more complete simulation framework introduces control surface deflections as t
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.275\textwidth]{image34.png}
+    \includegraphics[width=0.5\textwidth]{image34.png}
     \caption{Control Surface Simulink block.}
     \label{fig:cs_block}
 \end{figure}
@@ -297,7 +297,7 @@ Trim does not calculate deflections with a direct formula. Instead, it solves a 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.275\textwidth]{image36.png}
+    \includegraphics[width=0.5\textwidth]{image36.png}
     \caption{Trim Simulink block.}
     \label{fig:trim_block}
 \end{figure}
@@ -329,25 +329,25 @@ The lateral autopilot steers the aircraft left and right through two nested loop
     \centering
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image8.png}
+        \includegraphics[width=\textwidth]{image8.png}
         \caption{Course control.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image5.png}
+        \includegraphics[width=\textwidth]{image5.png}
         \caption{Roll control.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image30.png}
+        \includegraphics[width=\textwidth]{image30.png}
         \caption{Course gains.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image24.png}
+        \includegraphics[width=\textwidth]{image24.png}
         \caption{Roll gains.}
     \end{subfigure}
     \caption{Lateral autopilot --- course and roll control (Controllers 1 \& 2).}
@@ -360,19 +360,19 @@ The lateral autopilot also has a standalone \textbf{sideslip control (Controller
     \centering
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image19.png}
+        \includegraphics[width=\textwidth]{image19.png}
         \caption{Sideslip control.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image17.png}
+        \includegraphics[width=\textwidth]{image17.png}
         \caption{Sideslip gains.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image35.png}
+        \includegraphics[width=\textwidth]{image35.png}
         \caption{Sideslip response.}
     \end{subfigure}
     \caption{Lateral autopilot --- sideslip control (Controller 3).}
@@ -392,19 +392,19 @@ The longitudinal autopilot controls altitude and airspeed:
     \centering
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image33.png}
+        \includegraphics[width=\textwidth]{image33.png}
         \caption{Altitude hold.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image16.png}
+        \includegraphics[width=\textwidth]{image16.png}
         \caption{Pitch control.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image11.png}
+        \includegraphics[width=\textwidth]{image11.png}
         \caption{Gains.}
     \end{subfigure}
     \caption{Longitudinal autopilot --- altitude hold and pitch control (Controllers 4 \& 5).}
@@ -417,13 +417,13 @@ The longitudinal autopilot controls altitude and airspeed:
     \centering
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image10.png}
+        \includegraphics[width=\textwidth]{image10.png}
         \caption{Airspeed hold.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image21.png}
+        \includegraphics[width=\textwidth]{image21.png}
         \caption{Airspeed gains.}
     \end{subfigure}
     \caption{Longitudinal autopilot --- airspeed hold control (Controller 6).}
@@ -436,13 +436,13 @@ A standalone \textbf{throttle control} loop maintains the commanded airspeed dur
     \centering
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image32.png}
+        \includegraphics[width=\textwidth]{image32.png}
         \caption{Throttle control.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image22.png}
+        \includegraphics[width=\textwidth]{image22.png}
         \caption{Throttle gains.}
     \end{subfigure}
     \caption{Longitudinal autopilot --- throttle control.}
@@ -501,13 +501,13 @@ In this section, we address the issue of excessive airspeed in the autopilot. Up
     \centering
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image20.png}
+        \includegraphics[width=\textwidth]{image20.png}
         \caption{Original (incorrect) gains.}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.24\textwidth}
         \centering
-        \includegraphics[width=0.5\textwidth]{image31.png}
+        \includegraphics[width=\textwidth]{image31.png}
         \caption{Corrected gains.}
     \end{subfigure}
     \caption{Airspeed controller gain correction.}
@@ -518,7 +518,7 @@ The original gains were based on Controller 6 values, which are always negative.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.40\textwidth]{image29.png}
+    \includegraphics[width=0.5\textwidth]{image29.png}
     \caption{Simulation results after airspeed gain correction.}
     \label{fig:corrected_result}
 \end{figure}
