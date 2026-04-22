@@ -314,11 +314,11 @@ The \texttt{dx0} vector represents the equilibrium state the trim optimiser must
 % ─────────────────────────────────────────────────────────────────────────────
 \subsection{Task 6: Autopilot Design}
 
-In Lab 6, we design a successive loop closure autopilot based on all previous work. Successive loop closure consists of a series of simple feedback loops that separates time scales: the inner loop handles faster attitude stabilisation, while the outer loop handles navigation.
+In Lab 6, we will design a successive loop closure autopilot based on all the work completed previously. Successive loop closure consists of a series of simple feedback loops. This design facilitates the separation of time scales for different aerodynamic processes: the inner loop has a faster response time and therefore handles attitude stabilisation, whereas the outer loop handles navigation.
 
 \subsubsection*{Lateral Autopilot}
 
-The lateral autopilot steers the aircraft left and right through two nested loops:
+The lateral autopilot is responsible for steering the aircraft left and right. \textbf{Course control (Controller 2)} acts as an outer loop PI controller, which checks the course error between the desired heading and the actual heading, and calculates the commanded roll angle $\phi^c$. An inner loop PD controller, \textbf{Roll control (Controller 1)}, compares the commanded roll angle and actual roll angle, then calculates the physical aileron deflection $\delta_a$.
 
 \begin{itemize}
     \item \textbf{Course control (Controller 2)} --- outer loop PI controller. Computes the error between desired and actual heading and calculates the commanded roll angle $\phi^c$.
@@ -354,7 +354,7 @@ The lateral autopilot steers the aircraft left and right through two nested loop
     \label{fig:lateral_course_roll}
 \end{figure}
 
-The lateral autopilot also has a standalone \textbf{sideslip control (Controller 3)}, a PI controller that calculates rudder deflection $\delta_r$ to regulate sideslip angle $\beta$.
+Lateral Autopilot also has a standalone loop, which is \textbf{sideslip control (Controller 3)}. This PI controller can calculate the rudder deflection $\delta_r$ to adjust the sideslip angle $\beta$.
 
 \begin{figure}[h!]
     \centering
@@ -381,7 +381,7 @@ The lateral autopilot also has a standalone \textbf{sideslip control (Controller
 
 \subsubsection*{Longitudinal Autopilot}
 
-The longitudinal autopilot controls altitude and airspeed:
+Next, the longitudinal autopilot is responsible for the aircraft's altitude and speed. \textbf{Altitude hold control (Controller 5)} is an outer loop PI controller that measures the error between the commanded altitude and the actual altitude, hence generates the commanded pitch angle $\theta^c$. Next, \textbf{pitch control (Controller 4)} is an inner loop PD controller that is based on the commanded pitch angle to generate the elevator deflection $\delta_e$. 
 
 \begin{itemize}
     \item \textbf{Altitude hold control (Controller 5)} --- outer loop PI controller. Measures altitude error and generates commanded pitch angle $\theta^c$.
@@ -411,7 +411,7 @@ The longitudinal autopilot controls altitude and airspeed:
     \label{fig:longitudinal_alt}
 \end{figure}
 
-\textbf{Airspeed hold control (Controller 6)} is another outer loop PI controller that regulates airspeed to the commanded value, generating the commanded pitch angle. It shares the same pitch control inner loop.
+Another outer and inner loops in the longitudinal autopilot are the airspeed hold control and pitch control (same as before). \textbf{Airspeed hold control (Controller 6)} is an outer loop PI controller that regulates the airspeed to match the commanded airspeed, hence generating the commanded pitch angle. The working principle and function of pitch control is same as before.
 
 \begin{figure}[h!]
     \centering
@@ -430,7 +430,7 @@ The longitudinal autopilot controls altitude and airspeed:
     \label{fig:longitudinal_airspeed}
 \end{figure}
 
-A standalone \textbf{throttle control} loop maintains the commanded airspeed during cruise.
+A standalone loop in the longitudinal autopilot is \textbf{throttle control (Controller 7)}, which can maintain the commanded airspeed while cruising and calculate the throttle command $\delta_t$.
 
 \begin{figure}[h!]
     \centering
@@ -476,7 +476,7 @@ Based on current altitude, the longitudinal autopilot divides flight into four z
 
 After running the Simulink model, the results show that \textbf{lateral control is functioning correctly}. A step command at $t = 100$\,s changes the heading to 10 degrees; the aircraft rolls to approximately 20 degrees and returns to 0 degrees once the heading is reached. Sideslip is actively cancelled by the rudder throughout every turn.
 
-Regarding \textbf{longitudinal control}, altitude tracking exhibits good performance but airspeed control fails. Airspeed remains at approximately 70\,m/s for the entire flight and throttle locks at 1.0 (maximum power). This is likely due to incorrect gain signs in the airspeed controller or an issue during the transition from Climb Zone to Altitude Hold Zone.
+Regarding \textbf{longitudinal control}, altitude tracking exhibits good performance but airspeed control fails. During takeoff and climb, the aircraft pitches up aggressively at $t = 0$\ to reach the initial reference altitude. At $t = 25$\, the commanded altitude steps up. The elevator deflection causes the pitch angle to increase, and the aircraft climbs smoothly to the new altitude with minimal overshoot. Airspeed remains at approximately 70\,m/s for the entire flight and throttle locks at 1.0 (maximum power). This is likely due to incorrect gain signs in the airspeed controller or an issue during the transition from Climb Zone to Altitude Hold Zone.
 
 % ── 3. Observation and Improvement ───────────────────────────────────────────
 \section{Observation and Improvement}
