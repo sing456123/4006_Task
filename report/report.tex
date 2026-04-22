@@ -320,11 +320,6 @@ In Lab 6, we will design a successive loop closure autopilot based on all the wo
 
 The lateral autopilot is responsible for steering the aircraft left and right. \textbf{Course control (Controller 2)} acts as an outer loop PI controller, which checks the course error between the desired heading and the actual heading, and calculates the commanded roll angle $\phi^c$. An inner loop PD controller, \textbf{Roll control (Controller 1)}, compares the commanded roll angle and actual roll angle, then calculates the physical aileron deflection $\delta_a$.
 
-\begin{itemize}
-    \item \textbf{Course control (Controller 2)} --- outer loop PI controller. Computes the error between desired and actual heading and calculates the commanded roll angle $\phi^c$.
-    \item \textbf{Roll control (Controller 1)} --- inner loop PD controller. Compares commanded and actual roll angle, then calculates aileron deflection $\delta_a$.
-\end{itemize}
-
 \begin{figure}[h!]
     \centering
     \begin{subfigure}{0.24\textwidth}
@@ -383,10 +378,7 @@ Lateral Autopilot also has a standalone loop, which is \textbf{sideslip control 
 
 Next, the longitudinal autopilot is responsible for the aircraft's altitude and speed. \textbf{Altitude hold control (Controller 5)} is an outer loop PI controller that measures the error between the commanded altitude and the actual altitude, hence generates the commanded pitch angle $\theta^c$. Next, \textbf{pitch control (Controller 4)} is an inner loop PD controller that is based on the commanded pitch angle to generate the elevator deflection $\delta_e$. 
 
-\begin{itemize}
-    \item \textbf{Altitude hold control (Controller 5)} --- outer loop PI controller. Measures altitude error and generates commanded pitch angle $\theta^c$.
-    \item \textbf{Pitch control (Controller 4)} --- inner loop PD controller. Based on $\theta^c$, generates elevator deflection $\delta_e$.
-\end{itemize}
+Another outer and inner loops in the longitudinal autopilot are the airspeed hold control and pitch control (same as before). \textbf{Airspeed hold control (Controller 6)} is an outer loop PI controller that regulates the airspeed to match the commanded airspeed, hence generating the commanded pitch angle. The working principle and function of pitch control is same as before.
 
 \begin{figure}[h!]
     \centering
@@ -410,8 +402,6 @@ Next, the longitudinal autopilot is responsible for the aircraft's altitude and 
     \caption{Longitudinal autopilot --- altitude hold and pitch control (Controllers 4 \& 5).}
     \label{fig:longitudinal_alt}
 \end{figure}
-
-Another outer and inner loops in the longitudinal autopilot are the airspeed hold control and pitch control (same as before). \textbf{Airspeed hold control (Controller 6)} is an outer loop PI controller that regulates the airspeed to match the commanded airspeed, hence generating the commanded pitch angle. The working principle and function of pitch control is same as before.
 
 \begin{figure}[h!]
     \centering
@@ -449,6 +439,8 @@ A standalone loop in the longitudinal autopilot is \textbf{throttle control (Con
     \label{fig:throttle}
 \end{figure}
 
+\subsubsection*{Longitudinal Flight Zones}
+
 Based on current altitude, the longitudinal autopilot divides flight into four zones:
 
 \begin{table}[h!]
@@ -467,16 +459,18 @@ Based on current altitude, the longitudinal autopilot divides flight into four z
     \end{tabular}
 \end{table}
 
+\subsubsection*{Result}
+
+After running the Simulink model, the results show that \textbf{lateral control is functioning correctly}. A step command at $t = 100$\,s changes the heading to 10 degrees; the aircraft rolls to approximately 20 degrees and returns to 0 degrees once the heading is reached. Sideslip is actively cancelled by the rudder throughout every turn.
+
+Regarding \textbf{longitudinal control}, altitude tracking exhibits good performance but airspeed control fails. During takeoff and climb, the aircraft pitches up aggressively at $t = 0$\ to reach the initial reference altitude. At $t = 25$\, the commanded altitude steps up. The elevator deflection causes the pitch angle to increase, and the aircraft climbs smoothly to the new altitude with minimal overshoot. Airspeed remains at approximately 70\,m/s for the entire flight and throttle locks at 1.0 (maximum power). This is likely due to incorrect gain signs in the airspeed controller or an issue during the transition from Climb Zone to Altitude Hold Zone.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{image4.png}
     \caption{Result of autopilot design simulation.}
     \label{fig:autopilot_result}
 \end{figure}
-
-After running the Simulink model, the results show that \textbf{lateral control is functioning correctly}. A step command at $t = 100$\,s changes the heading to 10 degrees; the aircraft rolls to approximately 20 degrees and returns to 0 degrees once the heading is reached. Sideslip is actively cancelled by the rudder throughout every turn.
-
-Regarding \textbf{longitudinal control}, altitude tracking exhibits good performance but airspeed control fails. During takeoff and climb, the aircraft pitches up aggressively at $t = 0$\ to reach the initial reference altitude. At $t = 25$\, the commanded altitude steps up. The elevator deflection causes the pitch angle to increase, and the aircraft climbs smoothly to the new altitude with minimal overshoot. Airspeed remains at approximately 70\,m/s for the entire flight and throttle locks at 1.0 (maximum power). This is likely due to incorrect gain signs in the airspeed controller or an issue during the transition from Climb Zone to Altitude Hold Zone.
 
 % ── 3. Observation and Improvement ───────────────────────────────────────────
 \section{Observation and Improvement}
