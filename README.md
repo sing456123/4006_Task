@@ -166,4 +166,4 @@ The full LaTeX report template is available here: [report/report.tex](report/rep
 
 ## Authors
 
-Undergraduate project — Department of Aerospace Engineering
+Undergraduate project
